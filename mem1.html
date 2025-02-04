@@ -16,29 +16,49 @@
         <div class="right"></div>
         <ul>
             <li>
-                Home
+                <a href="about.html">
+                About Me</a>
             </li>
             <li>
-                About
+                <a href="skills.html">
+                Skills</a>
             </li>
             <li>
-                Services
+                <a href="projects.html">
+                Projects</a>
             </li>
             <li>
-                Projects
-            </li>
-            <li>
-                Contact Me
+               <a href="contact.html"> 
+                Contact Me</a>
             </li>
         </ul>
     </nav>
  </header>   
  <main>
     <section class="firstsection">
-        <div class="left">leftsection</div>
-        <p>Hi! Myself Gurpreet Kaur</p>
-        <div class="right">rightsection</div>
+        <div class="leftsection">
+        Hi,Myself <span class="color">Gurpreet</span>
+        <div>and I am passionate</div>
+    <span id="element"></span>
+    <div class="buttons">
+        <button class="btn"><a href="https://www.linkedin.com/in/gurpreet-kaur-86889331b/">Visit my LinkedIn profile</a></button>
+        <button class="btn"><a href="https://github.com/Gurpreetkaur2111">Visit Github</a></button>
+    </div>
+</div>
+        <div class="rightsection">
+            <img src="webdev.jpg" alt="photo">
+        </div>
     </section>
+    
  </main>
+
+ <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+ <script>
+    var typed = new Typed('#element', {
+      strings: ['Web Developer'],
+      typeSpeed: 50,
+      showCursor:false,
+    });
+  </script>
 </body>
 </html>
