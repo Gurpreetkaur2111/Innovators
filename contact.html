@@ -1,49 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f4f4f4;
-        }
-        .contact-container {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-        h2 {
-            margin-bottom: 10px;
-        }
-        .contact-info {
-            margin: 10px 0;
-        }
-        a {
-            text-decoration: none;
-            color: #007BFF;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <link rel="stylesheet"href="style1.css">
 </head>
-<body>
-    <div class="contact-container">
-        <h2>Contact Me</h2>
-        <p class="contact-info"><strong>Email:</strong> <a href="mailto:your.email@example.com">mausumi.2024ca054@mnnit.ac.in</a></p>
-        <p class="contact-info"><strong>Phone:</strong> +91 81149 17257</p>
-        <p class="contact-info"><strong>Address:</strong>Nirakarpur,khurdha,Odisha</p>
-        <p class="contact-info"><strong>Pincode:</strong>752019</p>
-        <button onclick="goBack()">back</button>
-    </div>
-    <script>
-        function goBack() {
-            window.location.href = "port.html"; 
-        }
-    </script>
+<body class="c">
+    <h2>CONTACT ME</h2>
+    <form id="contact form"action="submit_form.php"method="POST"onsubmit="return validateForm">
+        <label for="name">Name:</label>
+        <input type="text"id="name"name="name"required><br><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <br><br>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+        <br><br>
+        <input type="submit"value="SEND">
+    </form>
+    
+    <!-- <div class="contact">
+        <p>Contact me at:7905614282</p><br>
+        <p>E-mail:gurpkaur37@gmail.com</p>
+    </div> -->
+    <script src="script.js"></script>
 </body>
 </html>
