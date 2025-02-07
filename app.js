@@ -1,60 +1,70 @@
-let userScore=0;
-let compScore=0;
+const BASE_URL="https://2024-03-06.currency-api.pages.dev/v1/currencies";
+const dropdowns=document.querySelectorAll(".dropdown select");
+const btn=document.querySelector("form button");
+const fromCurr=document.querySelector(".from select");
+const toCurr=document.querySelector(".to select");
+const msg=document.querySelector(".msg");
 
-const choices=document.querySelectorAll(".choice");
-const msg=document.queryselector
-const genCompChoice=()=>
+
+document.addEventListener(){
+    
+}
+
+for(let select of dropdowns)
 {
-    const options=["rock","paper","scissors"];
-    const randIdx=Math.floor(Math.random()*3);
-    return options[randIdx];
-};
-const drawGame=()=>
-{
-    console.log("game was draw");
-};
-const showWinner=(userWin)=>
-{
-    if(userWin)
+    for (let currCode in countryList)
     {
-        console.log("you win!");
-    }
-    else{
-        console.log("you loose");
-    }
-};
-const playGame=(userChoice)=>{
-    console.log("user choice=",userChoice);
-    const compChoice=genCompChoice();
-    console.log("comp choice=",compChoice);
-    if(userChoice===compChoice)
-    {
-       drawGame(); 
-    }
-    else
-    {
-        let userWin=true;
-        if(userChoice==="rock")
+        //  let currCode=countryList[countryCode];
+        //  console.log("Adding currency: " + currCode);
+
+        let newOption=document.createElement("option");
+        newOption.innerText=currCode;
+        newOption.value=currCode;
+        if(select.name==="From"&&currCode==="USD")
         {
-            userWin=compChoice==="paper"?false,true;
+            newOption.selected="selected";
         }
-        else if(userChoice=="paper")
+        else if(select.name==="To"&&currCode==="INR")
         {
-            userWin=compChoice==="scissors"?false:true;
+            newOption.selected="selected";
         }
-        else{
-            userWin=compChoice==="rock"?false:true;
-        }
-        showWinner(userWin);
+        select.append(newOption);
     }
+
+select.addEventListener("change",(evt)=>{
+    UpdateFlag(evt.target);
+});
+}
+const UpdateFlag=(element)=>
+{
+    let currCode=element.value;
+    let countryCode=countryList(currCode);
+    let newSrc=`https://flagsapi.com/${countryCode}/flat/64.png`;
+    element.parentElement.querySelector("img");
+    img.src=newSrc;
 
 };
 
-choices.forEach((choice)=>{
-    console.log(choice);
-    choice.addEventListener("click",()=>
+btn.addEventListener("click",async(evt)=>{
+    evt.preventDefault();
+    let amount=document.querySelector(".amount input");
+    let amtVal=amount.value;
+    console.log(amtVal);
+    if(amtVal===" "||amtVal<1)
     {
-        const userChoice=choice.getAttribute("id");
-        console.log("choice was clicked",userChoice);
+        amtVal=1;
+        amount.value="1";
     }
+
+// console.log(fromCurr,toCurr);
+const URL=`${BASE_URL}/${fromCurr.value.tolowerCase()}/${toCurr.value.tolowerCase()}.json`;
+let response=await fetch(URL);
+console.log(response);
+let rate=data(toCurr.value.toLowerCase());
+// console.log(rate);
+
+
+let finalAmount=amtVal*rate;
+msg.innerText=`${amtVal} ${fromCurr.value}=${finalAmount} ${toCurr.value}`;
+
 });
