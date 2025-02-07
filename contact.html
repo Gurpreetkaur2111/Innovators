@@ -8,7 +8,8 @@
 </head>
 <body class="c">
     <h2>CONTACT ME</h2>
-    <form id="contact form"action="submit_form.php"method="POST"onsubmit="return validateForm">
+    <div>
+    <form id="contact-form"action="/contact"method="POST"onsubmit="return validateForm(event)">
         <label for="name">Name:</label>
         <input type="text"id="name"name="name"required><br><br>
         <label for="email">Email:</label>
@@ -19,11 +20,8 @@
         <br><br>
         <input type="submit"value="SEND">
     </form>
-    
-    <!-- <div class="contact">
-        <p>Contact me at:7905614282</p><br>
-        <p>E-mail:gurpkaur37@gmail.com</p>
-    </div> -->
+    </div>
     <script src="script.js"></script>
+    <script src="server.js"></script>
 </body>
 </html>
